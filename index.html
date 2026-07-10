@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login Page</title>
+
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family:Arial, sans-serif;
+    }
+
+    body{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        height:100vh;
+        background:linear-gradient(135deg,#4facfe,#00f2fe);
+    }
+
+    .login-box{
+        background:#fff;
+        padding:30px;
+        border-radius:10px;
+        box-shadow:0 5px 15px rgba(0,0,0,0.2);
+        width:320px;
+        text-align:center;
+    }
+
+    h2{
+        margin-bottom:20px;
+        color:#333;
+    }
+
+    input{
+        width:100%;
+        padding:10px;
+        margin:10px 0;
+        border:1px solid #ccc;
+        border-radius:5px;
+        font-size:16px;
+    }
+
+    button{
+        width:100%;
+        padding:10px;
+        border:none;
+        background:#007BFF;
+        color:white;
+        font-size:16px;
+        border-radius:5px;
+        cursor:pointer;
+    }
+
+    button:hover{
+        background:#0056b3;
+    }
+
+    #message{
+        margin-top:15px;
+        font-weight:bold;
+    }
+
+    .home{
+        display:none;
+        text-align:center;
+        color:white;
+    }
+
+    .home h1{
+        font-size:40px;
+    }
+
+    .home p{
+        font-size:20px;
+        margin-top:10px;
+    }
+</style>
+
+</head>
+<body>
+
+<div class="login-box" id="loginPage">
+    <h2>Login</h2>
+
+    <input type="text" id="username" placeholder="Enter Username">
+
+    <input type="password" id="password" placeholder="Enter Password">
+
+    <button onclick="login()">Login</button>
+
+    <p id="message"></p>
+</div>
+
+<div class="home" id="homePage">
+    <h1>🎉 Login Successful</h1>
+    <p>Welcome, Sarvesh!</p>
+</div>
+
+<script>
+function login(){
+
+    let username = document.getElementById("username").value;
+    let password = document.getElementById("password").value;
+    let message = document.getElementById("message");
+
+    if(username === "Sarvesh" && password === "123"){
+        message.style.color = "green";
+        message.innerHTML = "Login Successful";
+
+        setTimeout(function(){
+            document.getElementById("loginPage").style.display="none";
+            document.getElementById("homePage").style.display="block";
+        },1000);
+
+    }else{
+        message.style.color = "red";
+        message.innerHTML = "Invalid Username or Password";
+    }
+
+}
+</script>
+
+</body>
+</html>
